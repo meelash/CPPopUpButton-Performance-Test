@@ -1,0 +1,5 @@
+Test pop up button in Firefox and/or using a slower computer to get the best idea of the performance issue.
+
+When clicking on the pop up button for the first time, notice the long delay time before it opens. After the first time, subsequent loads are faster.
+
+Reloading items in the pop up button makes it slow again.
