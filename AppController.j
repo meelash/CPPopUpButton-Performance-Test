@@ -45,4 +45,9 @@ TEST_ARRAY2 = [CPArray arrayWithObjects:"51 aTHTHaariyaat", "52 aT-Toor", "53 an
     }
 }
 
+- (@action)selectItemAtFirstIndex:(id)sender
+{
+    [testButton selectItemAtIndex:0];
+}
+
 @end
