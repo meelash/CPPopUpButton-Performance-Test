@@ -32,7 +32,7 @@ TEST_ARRAY2 = [CPArray arrayWithObjects:"51 aTHTHaariyaat", "52 aT-Toor", "53 an
 }
 
 - (@action)populateButton:(id)sender
-{debugger;
+{
     if ([testButton numberOfItems] == 114)
     {
         [testButton removeAllItems];
@@ -45,9 +45,16 @@ TEST_ARRAY2 = [CPArray arrayWithObjects:"51 aTHTHaariyaat", "52 aT-Toor", "53 an
     }
 }
 
-- (@action)selectItemAtFirstIndex:(id)sender
+- (@action)firstPreCallOption:(id)sender
 {
-    [testButton selectItemAtIndex:0];
+    [_CPMenuWindow menuWindowWithMenu:[testButton menu] font:[[testButton menu] font]];
+    return;
+}
+
+- (@action)secondPreCallOption:(id)sender
+{
+    [[_CPMenuWindow menuWindowWithMenu:[testButton menu] font:[[testButton menu] font]] setConstraintRect:[CPMenu _constraintRectForView:testButton]];
+    return;
 }
 
 @end
