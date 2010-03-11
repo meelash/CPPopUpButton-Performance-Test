@@ -1,8 +1,8 @@
-@STATIC;1.0;p;15;AppController.jI;21;Foundation/CPObject.jc;5659;
+@STATIC;1.0;p;15;AppController.jI;21;Foundation/CPObject.ji;15;MHPopUpButton.jc;6347;
 TEST_ARRAY1 = objj_msgSend(CPArray, "arrayWithObjects:", "01 al-faatiHah", "02 al-baqarah", "03 aali Imraan","04 an-nisaa'","05 al-maaidah","06 al-anAam", "07 al-aA'raaf","08 al-anfaal","09 at-tawbah","10 yoonus","11 hood","12 yoosuf","13 ar-raA'd","14 ibraaheem","15 al-Hijr","16 an-naHl","17 banee israaeel","18 al-kahf","19 maryam","20 Taa haa","21 al-ambiyaa'","22 al-Hajj","23 al-mu'minoon","24 an-noor","25 al-furqaan","26 ash-shuAraa'","27 an-naml","28 al-qaSaS","29 al-Ankaboot","30 ar-room", "31 luqmaan","32 as-sajdah","33 al-aHzaab","34 sabaa","35 faaTir","36 yaa seen","37 aS-Saaffaati","38 Saad","39 az-zumar","40 al-mu'min","41 Haa meem as-sajdah", "42 ash-shooraa", "43 az-zukhruf", "44 ad-dukhaan","45 al-jaathiya","46 al-aHqaaf","47 muHammad","48 al-fat'H", "49 al-Hujuraat", "50 Qaaf", "51 aTHTHaariyaat", "52 aT-Toor", "53 an-najm", "54 al-qamar", "55 ar-raHmaan", "56 al-waaqiAh", "57 al-Hadeed", "58 al-mujaadilah", "59 al-Hashr", "60 al-mumtaHinah", "61 aS-Saf", "62 al-jumuAh", "63 al-munaafiqoon", "64 at-taghaabun", "65 aT-Talaaq","66 at-taHreem","67 al-mulk", "68 al-Qalam","69 al-Haaqqah","70 al-maAarij","71 nooH", "72 al-jinn","73 al-muzzammil","74 al-muddaththir","75 al-qiyaamah","76 ad-dahr","77 al-mursalaat","78 anabaa","79 an-naaziAati","80 Abasa","81 at-takweer","82 al-infiTaar","83 al-muTaffifeen","84 al-inshiqaaq","85 al-burooj","86 aT-Taariq","87 al-aA'laa","88 al-ghaashiyah","89 al-fajr","90 al-balad","91 ash-shams","92 al-layl","93 aDDuHaa","94 al-inshiraaH","95 at-teen", "96 al-Alaq","97 al-qadr","98 al-bayyinah","99 az-zilzaal","100 al-Aadiyaat","101 al-qaariAh", "102 at-takaathur", "103 al-ASr", "104 al-humazah", "105 al-feel","106 quraysh","107 al-maaOon","108 al-kawthar","109 al-kaafiroon","110 an-naSr","111 al-lahab","112 al-ikhlaaS","113 al-falaq","114 an-naas");
 TEST_ARRAY2 = objj_msgSend(CPArray, "arrayWithObjects:", "51 aTHTHaariyaat", "52 aT-Toor", "53 an-najm", "54 al-qamar", "55 ar-raHmaan", "56 al-waaqiAh", "57 al-Hadeed", "58 al-mujaadilah", "59 al-Hashr", "60 al-mumtaHinah", "61 aS-Saf", "62 al-jumuAh", "63 al-munaafiqoon", "64 at-taghaabun", "65 aT-Talaaq","66 at-taHreem","67 al-mulk", "68 al-Qalam","69 al-Haaqqah","70 al-maAarij","71 nooH", "72 al-jinn","73 al-muzzammil","74 al-muddaththir","75 al-qiyaamah","76 ad-dahr","77 al-mursalaat","78 anabaa","79 an-naaziAati","80 Abasa","81 at-takweer","82 al-infiTaar","83 al-muTaffifeen","84 al-inshiqaaq","85 al-burooj","86 aT-Taariq","87 al-aA'laa","88 al-ghaashiyah","89 al-fajr","90 al-balad","91 ash-shams","92 al-layl","93 aDDuHaa","94 al-inshiraaH","95 at-teen", "96 al-Alaq","97 al-qadr","98 al-bayyinah","99 az-zilzaal","100 al-Aadiyaat","101 al-qaariAh", "102 at-takaathur", "103 al-ASr", "104 al-humazah", "105 al-feel","106 quraysh","107 al-maaOon","108 al-kawthar","109 al-kaafiroon","110 an-naSr","111 al-lahab","112 al-ikhlaaS","113 al-falaq","114 an-naas");
 {var the_class = objj_allocateClassPair(CPObject, "AppController"),
-meta_class = the_class.isa;class_addIvars(the_class, [new objj_ivar("theWindow"), new objj_ivar("testButton")]);
+meta_class = the_class.isa;class_addIvars(the_class, [new objj_ivar("theWindow"), new objj_ivar("testButton"), new objj_ivar("testButton2")]);
 objj_registerClassPair(the_class);
 objj_addClassForBundle(the_class, objj_getBundleWithPath(OBJJ_CURRENT_BUNDLE.path));
 class_addMethods(the_class, [new objj_method(sel_getUid("theWindow"), function $AppController__theWindow(self, _cmd)
@@ -28,6 +28,18 @@ new objj_method(sel_getUid("setTestButton:"), function $AppController__setTestBu
 {
 testButton = newValue;
 }
+},["void","id"]),
+new objj_method(sel_getUid("testButton2"), function $AppController__testButton2(self, _cmd)
+{ with(self)
+{
+return testButton2;
+}
+},["id"]),
+new objj_method(sel_getUid("setTestButton2:"), function $AppController__setTestButton2_(self, _cmd, newValue)
+{ with(self)
+{
+testButton2 = newValue;
+}
 },["void","id"]), new objj_method(sel_getUid("applicationDidFinishLaunching:"), function $AppController__applicationDidFinishLaunching_(self, _cmd, aNotification)
 { with(self)
 {
@@ -50,7 +62,6 @@ testButton = newValue;
         objj_msgSend(testButton, "removeAllItems");
         objj_msgSend(testButton, "addItemsWithTitles:", TEST_ARRAY1);
     }
-    objj_msgSend(objj_msgSend(_CPMenuWindow, "menuWindowWithMenu:font:", objj_msgSend(testButton, "menu"), objj_msgSend(objj_msgSend(testButton, "menu"), "font")), "setConstraintRect:", objj_msgSend(CPMenu, "_constraintRectForView:", testButton));
 }
 },["@action","id"]), new objj_method(sel_getUid("firstPreCallOption:"), function $AppController__firstPreCallOption_(self, _cmd, sender)
 { with(self)
@@ -64,6 +75,21 @@ testButton = newValue;
     objj_msgSend(objj_msgSend(_CPMenuWindow, "menuWindowWithMenu:font:", objj_msgSend(testButton, "menu"), objj_msgSend(objj_msgSend(testButton, "menu"), "font")), "setConstraintRect:", objj_msgSend(CPMenu, "_constraintRectForView:", testButton));
     return;
 }
+},["@action","id"]), new objj_method(sel_getUid("removeAllItems:"), function $AppController__removeAllItems_(self, _cmd, sender)
+{ with(self)
+{
+    objj_msgSend(testButton2, "removeAllItems");
+}
+},["@action","id"]), new objj_method(sel_getUid("addItems:"), function $AppController__addItems_(self, _cmd, sender)
+{ with(self)
+{
+    objj_msgSend(testButton2, "addItemsWithTitles:", TEST_ARRAY1);
+}
+},["@action","id"]), new objj_method(sel_getUid("changedItem:"), function $AppController__changedItem_(self, _cmd, sender)
+{ with(self)
+{
+    alert(objj_msgSend(testButton2, "indexOfSelectedItem"));
+}
 },["@action","id"])]);
 }
 
@@ -71,6 +97,65 @@ p;6;main.jI;23;Foundation/Foundation.jI;15;AppKit/AppKit.ji;15;AppController.jc;
 main= function(args, namedArgs)
 {
     CPApplicationMain(args, namedArgs);
+}
+
+p;15;MHPopUpButton.jI;18;AppKit/CPControl.jc;2125;
+
+{var the_class = objj_allocateClassPair(CPControl, "MHPopUpButton"),
+meta_class = the_class.isa;class_addIvars(the_class, [new objj_ivar("_DOMSelectElement")]);
+objj_registerClassPair(the_class);
+objj_addClassForBundle(the_class, objj_getBundleWithPath(OBJJ_CURRENT_BUNDLE.path));
+class_addMethods(the_class, [new objj_method(sel_getUid("initWithFrame:"), function $MHPopUpButton__initWithFrame_(self, _cmd, aFrame)
+{ with(self)
+{
+    if (self = objj_msgSendSuper({ receiver:self, super_class:objj_getClass("CPControl") }, "initWithFrame:", aFrame))
+    {
+
+        _DOMSelectElement = document.createElement("select");
+        _DOMSelectElement.style.position = "absolute";
+        _DOMSelectElement.style.left = "0px";
+        _DOMSelectElement.style.top = "0px";
+
+        _DOMElement.appendChild(_DOMSelectElement);
+
+    }
+    return self;
+}
+},["id","CPRect"]), new objj_method(sel_getUid("removeAllItems"), function $MHPopUpButton__removeAllItems(self, _cmd)
+{ with(self)
+{
+    var numberOfItems=_DOMSelectElement.options.length;
+    for (var i=0; i<numberOfItems; i++)
+    {
+        _DOMSelectElement.options.remove(_DOMSelectElement.options[0]);
+    }
+}
+},["void"]), new objj_method(sel_getUid("addItemsWithTitles:"), function $MHPopUpButton__addItemsWithTitles_(self, _cmd, titles)
+{ with(self)
+{
+    for (var i=0; i<objj_msgSend(titles, "count"); i++)
+    {
+        var DOMoption = document.createElement("option");
+        DOMoption.innerHTML = titles[i];
+        _DOMSelectElement.options.add(DOMoption);
+    }
+
+}
+},["void","CPArray"]), new objj_method(sel_getUid("selectItemAtIndex:"), function $MHPopUpButton__selectItemAtIndex_(self, _cmd, anIndex)
+{ with(self)
+{
+    if (_DOMSelectElement.options.selectedIndex == anIndex)
+        return;
+
+    _DOMSelectElement.options.selectedIndex=anIndex;
+    objj_msgSend(self, "sendAction:to:", objj_msgSend(self, "action"), objj_msgSend(self, "target"));
+}
+},["void","int"]), new objj_method(sel_getUid("indexOfSelectedItem"), function $MHPopUpButton__indexOfSelectedItem(self, _cmd)
+{ with(self)
+{
+    return _DOMSelectElement.options.selectedIndex;
+}
+},["int"])]);
 }
 
 e;
