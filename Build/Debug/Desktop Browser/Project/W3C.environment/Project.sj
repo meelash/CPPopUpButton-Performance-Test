@@ -99,7 +99,7 @@ main= function(args, namedArgs)
     CPApplicationMain(args, namedArgs);
 }
 
-p;15;MHPopUpButton.jI;18;AppKit/CPControl.jc;2125;
+p;15;MHPopUpButton.jI;18;AppKit/CPControl.jc;2299;
 
 {var the_class = objj_allocateClassPair(CPControl, "MHPopUpButton"),
 meta_class = the_class.isa;class_addIvars(the_class, [new objj_ivar("_DOMSelectElement")]);
@@ -154,6 +154,11 @@ class_addMethods(the_class, [new objj_method(sel_getUid("initWithFrame:"), funct
 { with(self)
 {
     return _DOMSelectElement.options.selectedIndex;
+}
+},["int"]), new objj_method(sel_getUid("indexOfLastItem"), function $MHPopUpButton__indexOfLastItem(self, _cmd)
+{ with(self)
+{
+    return _DOMSelectElement.options.length;
 }
 },["int"])]);
 }

@@ -56,4 +56,9 @@
     return _DOMSelectElement.options.selectedIndex;
 }
 
+- (int)indexOfLastItem
+{
+    return _DOMSelectElement.options.length;
+}
+
 @end
