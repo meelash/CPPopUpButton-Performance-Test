@@ -22,6 +22,11 @@
     return self;
 }
 
++ (BOOL)supportsDragAndDrop
+{
+    return YES;
+}
+
 - (void)removeAllItems
 {
     var numberOfItems=_DOMSelectElement.options.length;
@@ -37,6 +42,10 @@
     {
         var DOMoption = document.createElement("option");
         DOMoption.innerHTML = titles[i];
+        DOMoption.style.fontFamily = "Arial, Arial, sans-serif";
+        DOMoption.style.fontSize = "13px";
+        DOMoption.style.fontStyle = "normal";
+        DOMoption.style.fontWeight = "normal";
         _DOMSelectElement.options.add(DOMoption);
     }
     
@@ -58,7 +67,17 @@
 
 - (int)indexOfLastItem
 {
-    return _DOMSelectElement.options.length;
+    return _DOMSelectElement.options.length-1;
+}
+
+- (id)objectValue
+{
+    return _DOMSelectElement.options.selectedIndex;
+}
+
+- (void)setObjectValue:(id)aValue
+{
+    [self selectItemAtIndex:[aValue intValue]];
 }
 
 @end
