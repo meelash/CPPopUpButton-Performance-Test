@@ -27815,7 +27815,7 @@ class_addMethods(meta_class, [new objj_method(sel_getUid("sharedMenuManager"), f
 },["_CPMenuManager"])]);
 }
 
-p;15;_CPMenuWindow.jt;24115;@STATIC;1.0;t;24095;
+p;15;_CPMenuWindow.jt;24262;@STATIC;1.0;t;24242;
 
 
 
@@ -28320,7 +28320,7 @@ _font = newValue;
     for (; index < count; ++index)
     {
         var item = items[index],
-            view = objj_msgSend(item, "_menuItemView");
+            view = objj_msgSend(item, "_menuItemViewWithoutSynchronization");
 
         _menuItemViews.push(view);
 
@@ -28330,6 +28330,8 @@ _font = newValue;
         _visibleMenuItemInfos.push({ view:view, index:index });
 
         objj_msgSend(view, "setFont:", _font);
+        objj_msgSend(view, "setShowsStateColumn:", showsStateColumn);
+        objj_msgSend(view, "synchronizeWithMenuItem");
 
         objj_msgSend(view, "setFrameOrigin:", CGPointMake(0.0, y));
 
@@ -29318,7 +29320,7 @@ class_addMethods(meta_class, [new objj_method(sel_getUid("view"), function $_CPM
 },["id"])]);
 }
 
-p;25;_CPMenuItemStandardView.jt;13287;@STATIC;1.0;t;13267;
+p;25;_CPMenuItemStandardView.jt;13239;@STATIC;1.0;t;13219;
 
 var LEFT_MARGIN = 3.0,
     RIGHT_MARGIN = 14.0 + 3.0,
@@ -29363,20 +29365,20 @@ return _minSize;
 
     if (self)
     {
-        _stateView = objj_msgSend(objj_msgSend(CPImageView, "alloc"), "initWithFrame:", CGRectMake(0.0, 0.0, 0.0, 0.0));
+        _stateView = objj_msgSend(objj_msgSend(CPImageView, "alloc"), "initWithFrame:", CGRectMakeZero);
 
         objj_msgSend(_stateView, "setImageScaling:", CPScaleNone);
 
         objj_msgSend(self, "addSubview:", _stateView);
 
-        _imageAndTextView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMake(0.0, 0.0, 0.0, 0.0));
+        _imageAndTextView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMakeZero);
 
         objj_msgSend(_imageAndTextView, "setImagePosition:", CPImageLeft);
         objj_msgSend(_imageAndTextView, "setTextShadowOffset:", CGSizeMake(0.0, 1.0));
 
         objj_msgSend(self, "addSubview:", _imageAndTextView);
 
-        _keyEquivalentView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMake(0.0, 0.0, 0.0, 0.0));
+        _keyEquivalentView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMakeZero);
 
         objj_msgSend(_keyEquivalentView, "setImagePosition:", CPNoImage);
         objj_msgSend(_keyEquivalentView, "setTextShadowOffset:", CGSizeMake(0.0, 1.0));
@@ -29625,7 +29627,7 @@ class_addMethods(the_class, [new objj_method(sel_getUid("setColor:"), function $
 },["void","CGRect"])]);
 }
 
-p;17;_CPMenuItemView.jt;9095;@STATIC;1.0;i;26;_CPMenuItemSeparatorView.ji;25;_CPMenuItemStandardView.ji;24;_CPMenuItemMenuBarView.jt;8986;
+p;17;_CPMenuItemView.jt;9671;@STATIC;1.0;i;26;_CPMenuItemSeparatorView.ji;25;_CPMenuItemStandardView.ji;24;_CPMenuItemMenuBarView.jt;9562;
 
 
 objj_executeFile("_CPMenuItemSeparatorView.j", YES);
@@ -29665,6 +29667,22 @@ class_addMethods(the_class, [new objj_method(sel_getUid("initWithFrame:forMenuIt
         objj_msgSend(self, "setAutoresizingMask:", CPViewWidthSizable);
 
         objj_msgSend(self, "synchronizeWithMenuItem");
+    }
+
+    return self;
+}
+},["id","CGRect","CPMenuItem"]), new objj_method(sel_getUid("initWithoutSynchronizationWithFrame:forMenuItem:"), function $_CPMenuItemView__initWithoutSynchronizationWithFrame_forMenuItem_(self, _cmd, aFrame, aMenuItem)
+{ with(self)
+{
+    self = objj_msgSendSuper({ receiver:self, super_class:objj_getClass("_CPMenuItemView").super_class }, "initWithFrame:", aFrame);
+
+    if (self)
+    {
+        _menuItem = aMenuItem;
+        _showsStateColumn = YES;
+        _isDirty = YES;
+
+        objj_msgSend(self, "setAutoresizingMask:", CPViewWidthSizable);
     }
 
     return self;
@@ -29869,7 +29887,7 @@ class_addMethods(the_class, [new objj_method(sel_getUid("setColor:"), function $
 },["void","CGRect"])]);
 }
 
-p;12;CPMenuItem.jt;21901;@STATIC;1.0;I;20;Foundation/CPCoder.jI;21;Foundation/CPObject.jI;21;Foundation/CPString.ji;9;CPImage.ji;8;CPMenu.ji;8;CPView.ji;17;_CPMenuItemView.jt;21745;objj_executeFile("Foundation/CPCoder.j", NO);
+p;12;CPMenuItem.jt;22270;@STATIC;1.0;I;20;Foundation/CPCoder.jI;21;Foundation/CPObject.jI;21;Foundation/CPString.ji;9;CPImage.ji;8;CPMenu.ji;8;CPView.ji;17;_CPMenuItemView.jt;22114;objj_executeFile("Foundation/CPCoder.j", NO);
 objj_executeFile("Foundation/CPObject.j", NO);
 objj_executeFile("Foundation/CPString.j", NO);
 objj_executeFile("CPImage.j", YES);
@@ -30270,6 +30288,13 @@ class_addMethods(the_class, [new objj_method(sel_getUid("init"), function $CPMen
 {
     if (!_menuItemView)
         _menuItemView = objj_msgSend(objj_msgSend(_CPMenuItemView, "alloc"), "initWithFrame:forMenuItem:", CGRectMakeZero(), self);
+    return _menuItemView;
+}
+},["id"]), new objj_method(sel_getUid("_menuItemViewWithoutSynchronization"), function $CPMenuItem___menuItemViewWithoutSynchronization(self, _cmd)
+{ with(self)
+{
+    if (!_menuItemView)
+        _menuItemView = objj_msgSend(objj_msgSend(_CPMenuItemView, "alloc"), "initWithoutSynchronizationWithFrame:forMenuItem:", CGRectMakeZero(), self);
     return _menuItemView;
 }
 },["id"]), new objj_method(sel_getUid("_isSelectable"), function $CPMenuItem___isSelectable(self, _cmd)
