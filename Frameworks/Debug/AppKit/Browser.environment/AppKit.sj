@@ -29320,7 +29320,7 @@ class_addMethods(meta_class, [new objj_method(sel_getUid("view"), function $_CPM
 },["id"])]);
 }
 
-p;25;_CPMenuItemStandardView.jt;13239;@STATIC;1.0;t;13219;
+p;25;_CPMenuItemStandardView.jt;13245;@STATIC;1.0;t;13225;
 
 var LEFT_MARGIN = 3.0,
     RIGHT_MARGIN = 14.0 + 3.0,
@@ -29365,20 +29365,20 @@ return _minSize;
 
     if (self)
     {
-        _stateView = objj_msgSend(objj_msgSend(CPImageView, "alloc"), "initWithFrame:", CGRectMakeZero);
+        _stateView = objj_msgSend(objj_msgSend(CPImageView, "alloc"), "initWithFrame:", CGRectMakeZero());
 
         objj_msgSend(_stateView, "setImageScaling:", CPScaleNone);
 
         objj_msgSend(self, "addSubview:", _stateView);
 
-        _imageAndTextView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMakeZero);
+        _imageAndTextView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMakeZero());
 
         objj_msgSend(_imageAndTextView, "setImagePosition:", CPImageLeft);
         objj_msgSend(_imageAndTextView, "setTextShadowOffset:", CGSizeMake(0.0, 1.0));
 
         objj_msgSend(self, "addSubview:", _imageAndTextView);
 
-        _keyEquivalentView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMakeZero);
+        _keyEquivalentView = objj_msgSend(objj_msgSend(_CPImageAndTextView, "alloc"), "initWithFrame:", CGRectMakeZero());
 
         objj_msgSend(_keyEquivalentView, "setImagePosition:", CPNoImage);
         objj_msgSend(_keyEquivalentView, "setTextShadowOffset:", CGSizeMake(0.0, 1.0));

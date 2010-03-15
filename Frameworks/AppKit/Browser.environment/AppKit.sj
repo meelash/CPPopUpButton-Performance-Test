@@ -25651,7 +25651,7 @@ with(_b){
 return objj_msgSend(objj_msgSend(_b,"alloc"),"initWithFrame:",CGRectMake(0,0,0,10));
 }
 })]);
-p;25;_CPMenuItemStandardView.jt;9223;@STATIC;1.0;t;9204;
+p;25;_CPMenuItemStandardView.jt;9229;@STATIC;1.0;t;9210;
 var _1=3,_2=14+3,_3=14,_4=17,_5=4,_6=30,_7=10;
 var _8=nil,_9=nil,_a=nil,_b=[],_c=[];
 var _d=objj_allocateClassPair(CPView,"_CPMenuItemStandardView"),_e=_d.isa;
@@ -25673,14 +25673,14 @@ return _minSize;
 with(_16){
 _16=objj_msgSendSuper({receiver:_16,super_class:objj_getClass("_CPMenuItemStandardView").super_class},"initWithFrame:",_18);
 if(_16){
-_stateView=objj_msgSend(objj_msgSend(CPImageView,"alloc"),"initWithFrame:",CGRectMakeZero);
+_stateView=objj_msgSend(objj_msgSend(CPImageView,"alloc"),"initWithFrame:",CGRectMakeZero());
 objj_msgSend(_stateView,"setImageScaling:",CPScaleNone);
 objj_msgSend(_16,"addSubview:",_stateView);
-_imageAndTextView=objj_msgSend(objj_msgSend(_CPImageAndTextView,"alloc"),"initWithFrame:",CGRectMakeZero);
+_imageAndTextView=objj_msgSend(objj_msgSend(_CPImageAndTextView,"alloc"),"initWithFrame:",CGRectMakeZero());
 objj_msgSend(_imageAndTextView,"setImagePosition:",CPImageLeft);
 objj_msgSend(_imageAndTextView,"setTextShadowOffset:",CGSizeMake(0,1));
 objj_msgSend(_16,"addSubview:",_imageAndTextView);
-_keyEquivalentView=objj_msgSend(objj_msgSend(_CPImageAndTextView,"alloc"),"initWithFrame:",CGRectMakeZero);
+_keyEquivalentView=objj_msgSend(objj_msgSend(_CPImageAndTextView,"alloc"),"initWithFrame:",CGRectMakeZero());
 objj_msgSend(_keyEquivalentView,"setImagePosition:",CPNoImage);
 objj_msgSend(_keyEquivalentView,"setTextShadowOffset:",CGSizeMake(0,1));
 objj_msgSend(_keyEquivalentView,"setAutoresizingMask:",CPViewMinXMargin);
